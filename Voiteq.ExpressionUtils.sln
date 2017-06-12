@@ -5,6 +5,19 @@ VisualStudioVersion = 15.0.26127.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Voiteq.ExpressionUtils", "Voiteq.ExpressionUtils\Voiteq.ExpressionUtils.fsproj", "{4C2CC81E-50D2-412B-9C31-31D04F57E293}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{B837432C-BC7A-49B8-8818-D35167B7853E}"
+ProjectSection(SolutionItems) = preProject
+	Voiteq.ExpressionUtils\package\Voiteq.ExpressionUtils.nuspec = Voiteq.ExpressionUtils\package\Voiteq.ExpressionUtils.nuspec
+	build.bat = build.bat
+	build.fsx = build.fsx
+	paket.dependencies = paket.dependencies
+	SolutionInfo.cs = SolutionInfo.cs
+	paket.lock = paket.lock
+	.gitignore = .gitignore
+EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voiteq.ExpressionUtils.Tests", "Voiteq.ExpressionUtils.Tests\Voiteq.ExpressionUtils.Tests.csproj", "{49B603C0-59AA-4627-8044-38B75E1359D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +28,10 @@ Global
 		{4C2CC81E-50D2-412B-9C31-31D04F57E293}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C2CC81E-50D2-412B-9C31-31D04F57E293}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C2CC81E-50D2-412B-9C31-31D04F57E293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49B603C0-59AA-4627-8044-38B75E1359D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49B603C0-59AA-4627-8044-38B75E1359D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49B603C0-59AA-4627-8044-38B75E1359D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49B603C0-59AA-4627-8044-38B75E1359D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

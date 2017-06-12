@@ -1,0 +1,7 @@
+﻿source https://nuget.org/api/v2
+source https://www.myget.org/F/rb-public/api/v2
+
+nuget FAKE
+nuget xunit
+nuget xunit.runner.console
+nuget Shouldly
