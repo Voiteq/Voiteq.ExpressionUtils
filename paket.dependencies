@@ -5,3 +5,4 @@ nuget FAKE
 nuget xunit
 nuget xunit.runner.console
 nuget Shouldly
+nuget NuGet.CommandLine

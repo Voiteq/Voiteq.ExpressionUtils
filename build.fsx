@@ -7,11 +7,12 @@ open Fake.Testing.XUnit2
 open Fake.OctoTools
 
 // Properties
-let buildDir = "./build/app"
+let buildDir = "./build/app/"
 let testDir  = "./build/test/"
+let packagingWorkDir = "./build/package_temp/"
 let packagingDir = "./build/package/"
-let baseVersion = "1.0"
-let version = "1.7.0"
+let baseVersion = "1.7"
+let version = sprintf "%s.%s" baseVersion (getBuildParamOrDefault "buildnumber" "0")
 let projectName = "Voiteq.ExpressionUtils"
 let zipName = packagingDir @@ (projectName + version + ".zip")
 let projectPath = projectName
@@ -25,12 +26,12 @@ Target "Clean" (fun _ ->
 
 Target "Build" (fun _ ->
   
-  CreateCSharpAssemblyInfo "./SolutionInfo.cs"
+  CreateFSharpAssemblyInfo "./SolutionInfo.fs"
     [Attribute.Version version
      Attribute.FileVersion version
      Attribute.Metadata("githash", Information.getCurrentHash())]
 
-  !! (projectPath @@ projectName + ".csproj")
+  !! (projectPath @@ projectName + ".fsproj")
   |> MSBuildRelease buildDir "Build"
   |> Log "Build app output: "
 
@@ -46,18 +47,29 @@ Target "Test" (fun _ ->
 )
 
 Target "CreatePackage" (fun _ ->
-  let fileIncludes = ["", SetBaseDir buildDir (!! (buildDir @@ "*.dll")) ++ (buildDir @@ "*.json") ++ (buildDir @@ "*.exe") ++ (buildDir @@ "*.config")]
-  ZipOfIncludes zipName fileIncludes
+    // Copy all the package files into a package folder
+    let contentFiles = SetBaseDir buildDir (!!("*.dll"))
+    CopyFiles packagingWorkDir contentFiles
+
+    let nuspecFile = (!!("Voiteq.ExpressionUtils.nuspec"))
+    CopyFiles packagingWorkDir contentFiles
+
+
+    NuGet (fun p -> 
+        {p with
+            Authors = [ "Stephen Willcock" ]
+            Project = projectName
+            Description = "Voiteq Expression Utils"                          
+            OutputPath = packagingDir
+            Summary = "Voiteq Expression Utils"
+            WorkingDir = packagingWorkDir
+            Version = version
+            AccessKey = "dc4ded01-b57e-49fe-8dde-e5eaf89e02f8"
+            Publish = true
+            PublishUrl = "https://www.myget.org/F/rb-public/api/v2/package"
+            Files = [@"Voiteq.ExpressionUtils.dll", Some @"lib/net46", None]}) 
+            "Voiteq.ExpressionUtils.nuspec"
 )
-
-//Target "PushPackage" (fun _ ->
-
-//  Octo (fun octoParams -> { octoParams with
-//                              ToolPath = "./packages/OctopusTools/tools"
-//                              Server = { Server = "http://athenaoctopus.northeurope.cloudapp.azure.com"; ApiKey = "API-WKR63GUVQPOSNXGG2ZM81YJYEW" }
-//                              Command  = Push { Packages = [zipName]; ReplaceExisting = true }})
-
-//)
 
 Target "Default" (fun _ ->
   trace "Running default task"
@@ -66,9 +78,8 @@ Target "Default" (fun _ ->
 // Task dependencies
 "Clean"
   ==> "Build"
-  ==> "Test"
+//  ==> "Test"
   ==> "CreatePackage"
-//  ==> "PushPackage"
   ==> "Default"
 
 // start build

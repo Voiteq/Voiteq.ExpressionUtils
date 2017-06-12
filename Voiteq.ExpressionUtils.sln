@@ -7,13 +7,14 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Voiteq.ExpressionUtils", "V
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{B837432C-BC7A-49B8-8818-D35167B7853E}"
 ProjectSection(SolutionItems) = preProject
-	Voiteq.ExpressionUtils\package\Voiteq.ExpressionUtils.nuspec = Voiteq.ExpressionUtils\package\Voiteq.ExpressionUtils.nuspec
 	build.bat = build.bat
 	build.fsx = build.fsx
 	paket.dependencies = paket.dependencies
-	SolutionInfo.cs = SolutionInfo.cs
 	paket.lock = paket.lock
 	.gitignore = .gitignore
+	Voiteq.ExpressionUtils.nuspec = Voiteq.ExpressionUtils.nuspec
+	build\package_temp\Voiteq.ExpressionUtils.1.7.0.0.nuspec = build\package_temp\Voiteq.ExpressionUtils.1.7.0.0.nuspec
+	SolutionInfo.fs = SolutionInfo.fs
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voiteq.ExpressionUtils.Tests", "Voiteq.ExpressionUtils.Tests\Voiteq.ExpressionUtils.Tests.csproj", "{49B603C0-59AA-4627-8044-38B75E1359D7}"
