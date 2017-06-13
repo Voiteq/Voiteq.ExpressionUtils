@@ -11,6 +11,7 @@ let buildDir = "./build/app/"
 let testDir  = "./build/test/"
 let packagingWorkDir = "./build/package_temp/"
 let packagingDir = "./build/package/"
+let packagesDir = "./packages/"
 let baseVersion = "1.7"
 let version = sprintf "%s.%s" baseVersion (getBuildParamOrDefault "buildnumber" "0")
 let projectName = "Voiteq.ExpressionUtils"
@@ -54,7 +55,9 @@ Target "CreatePackage" (fun _ ->
     let nuspecFile = (!!("Voiteq.ExpressionUtils.nuspec"))
     CopyFiles packagingWorkDir contentFiles
 
-
+    let PackageDependency packageName =
+        packageName, GetPackageVersion packagesDir packageName 
+    
     NuGet (fun p -> 
         {p with
             Authors = [ "Stephen Willcock" ]
@@ -67,7 +70,9 @@ Target "CreatePackage" (fun _ ->
             AccessKey = "dc4ded01-b57e-49fe-8dde-e5eaf89e02f8"
             Publish = true
             PublishUrl = "https://www.myget.org/F/rb-public/api/v2/package"
-            Files = [@"Voiteq.ExpressionUtils.dll", Some @"lib/net46", None]}) 
+            Files = [ @"Voiteq.ExpressionUtils.dll", Some @"lib/net46", None ]
+            Dependencies = [ PackageDependency "FSharp.Core" ]
+            }) 
             "Voiteq.ExpressionUtils.nuspec"
 )
 

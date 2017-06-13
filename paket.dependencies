@@ -6,3 +6,4 @@ nuget xunit
 nuget xunit.runner.console
 nuget Shouldly
 nuget NuGet.CommandLine
+nuget FSharp.Core 4.2.1

@@ -13,7 +13,6 @@ ProjectSection(SolutionItems) = preProject
 	paket.lock = paket.lock
 	.gitignore = .gitignore
 	Voiteq.ExpressionUtils.nuspec = Voiteq.ExpressionUtils.nuspec
-	build\package_temp\Voiteq.ExpressionUtils.1.7.0.0.nuspec = build\package_temp\Voiteq.ExpressionUtils.1.7.0.0.nuspec
 	SolutionInfo.fs = SolutionInfo.fs
 EndProjectSection
 EndProject

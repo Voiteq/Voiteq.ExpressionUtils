@@ -6,14 +6,11 @@
   <authors>@authors@</authors>
   <owners>Voiteq</owners>
   <summary>@summary@</summary>
-  <licenseUrl>https://github.com/octokit/octokit.net/blob/master/LICENSE.txt</licenseUrl>
-  <projectUrl>https://github.com/octokit/octokit.net</projectUrl>
-  <iconUrl>https://github.com/octokit/octokit.net/icon.png</iconUrl>
   <requireLicenseAcceptance>false</requireLicenseAcceptance>
   <description>@description@</description>
   <releaseNotes>@releaseNotes@</releaseNotes>
   <copyright>Copyright GitHub 2013</copyright>    
-  <tags>GitHub API Octokit</tags>
+  <tags>Voiteq Expressions</tags>
   @dependencies@
   @references@
   </metadata>
