@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Voiteq.ExpressionUtils.Tests
+﻿namespace Voiteq.ExpressionUtils.Tests
 {
     public class LookupCacheTests
     {
@@ -19,15 +17,12 @@ namespace Voiteq.ExpressionUtils.Tests
             public int CityId { get; set; }
         }
 
-        private static IList<TestUserClass> CreateTestData()
+        public class TestContainerClass
         {
-            return new List<TestUserClass>
-            {
-                new TestUserClass {Key = 12, Name = "Sara"},
-                new TestUserClass {Key = 23, Name = "Bill"},
-                new TestUserClass {Key = 5, Name = "Joe"}
-            };
+            public int Key { get; set; }
+            public TestUserClass TestUserClass { get; set; }
         }
-
+        
+        
     }
 }
