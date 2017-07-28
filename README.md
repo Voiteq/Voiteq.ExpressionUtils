@@ -12,7 +12,7 @@ The default build will run tests and deploy the package to MyGet (this can be se
 
 To set the package version, set the baseVersion in build.fsx
 
-> let baseVersion = "<enter version number here>"
+> let baseVersion = "enter version number here"
 
 ### Other OS
 
