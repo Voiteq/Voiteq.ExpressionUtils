@@ -12,7 +12,7 @@ let testDir  = "./build/test/"
 let packagingWorkDir = "./build/package_temp/"
 let packagingDir = "./build/package/"
 let packagesDir = "./packages/"
-let baseVersion = "1.7"
+let baseVersion = "1.8"
 let version = sprintf "%s.%s" baseVersion (getBuildParamOrDefault "buildnumber" "0")
 let projectName = "Voiteq.ExpressionUtils"
 let zipName = packagingDir @@ (projectName + version + ".zip")
@@ -83,7 +83,7 @@ Target "Default" (fun _ ->
 // Task dependencies
 "Clean"
   ==> "Build"
-//  ==> "Test"
+  ==> "Test"
   ==> "CreatePackage"
   ==> "Default"
 

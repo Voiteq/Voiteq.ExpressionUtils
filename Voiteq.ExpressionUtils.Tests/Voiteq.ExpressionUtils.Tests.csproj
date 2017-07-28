@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionTimer.cs" />
-    <Compile Include="LookupCacheTests.cs" />
+    <Compile Include="TestClasses.cs" />
     <Compile Include="PerfTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleTests.cs" />

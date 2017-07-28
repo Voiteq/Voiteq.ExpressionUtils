@@ -60,6 +60,9 @@ let inferCacheKey (predicate: System.Linq.Expressions.Expression<System.Func<'a,
         elif (right.NodeType = ExpressionType.Call || right.NodeType = ExpressionType.MemberAccess) && hasBoundCallRoot right then (leftString, rightString)
         elif System.String.CompareOrdinal (leftString, rightString) <= 0 then (leftString, rightString)
         else (rightString, leftString)
+        
+    and friendlyGenericName (t: System.Type) =
+        if (t.Name.StartsWith("Nullable")) then (t.GenericTypeArguments.[0].Name + "?") else t.Name
 
     and binaryExpressionFormatter (e : System.Linq.Expressions.Expression) binaryCombinator = 
         let binaryExpression = e :?> BinaryExpression
@@ -103,6 +106,9 @@ let inferCacheKey (predicate: System.Linq.Expressions.Expression<System.Func<'a,
             if not (hasBoundCallRoot e) then "(" + (standardiseExpression callExp.Object) + "." + callExp.Method.Name + "(" + (callExp.Arguments |> Seq.map standardiseExpression |> String.concat ",") + "))"
             else Expression.Constant(Expression.Lambda(callExp).Compile().DynamicInvoke()).ToString()
         | ExpressionType.Parameter -> null
+        | ExpressionType.Convert -> 
+            let convertExpression = e :?> UnaryExpression
+            "Convert(" + (standardiseExpression convertExpression.Operand) + ", " + (friendlyGenericName convertExpression.Type) + ")" 
         | _ -> raiseUnrecognisedExpressionException e
 
     standardiseExpression predicate

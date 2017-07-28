@@ -2,12 +2,12 @@
 namespace System
 open System.Reflection
 
-[<assembly: AssemblyVersionAttribute("1.7.0")>]
-[<assembly: AssemblyFileVersionAttribute("1.7.0")>]
-[<assembly: AssemblyMetadataAttribute("githash","3fa2f4")>]
+[<assembly: AssemblyVersionAttribute("1.8.0")>]
+[<assembly: AssemblyFileVersionAttribute("1.8.0")>]
+[<assembly: AssemblyMetadataAttribute("githash","276d18")>]
 do ()
 
 module internal AssemblyVersionInformation =
-    let [<Literal>] AssemblyVersion = "1.7.0"
-    let [<Literal>] AssemblyFileVersion = "1.7.0"
-    let [<Literal>] AssemblyMetadata_githash = "3fa2f4"
+    let [<Literal>] AssemblyVersion = "1.8.0"
+    let [<Literal>] AssemblyFileVersion = "1.8.0"
+    let [<Literal>] AssemblyMetadata_githash = "276d18"
