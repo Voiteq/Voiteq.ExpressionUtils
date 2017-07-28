@@ -6,6 +6,8 @@ A library for converting Lambda Expressions to short, consistent, human readable
 
 ### Windows
 
+Just run this on the command line:
+
 > build
 
 The default build will run tests and deploy the package to MyGet (this can be sent to NuGet instead easily enough at some point)
