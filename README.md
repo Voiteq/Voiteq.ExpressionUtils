@@ -16,9 +16,9 @@ To set the package version, set the baseVersion in build.fsx
 
 ### Other OS
 
-No build file yet, but take a look at build.bat and run equivalent commands in the shell.
+No build file for Linux yet, but just take a look at build.bat and run equivalent commands in the shell.
 
-The basic sequence is:
+The basic command sequence is:
 
 * Install paket by running paket bootstrapper
 * Restore packages by running paket restore
