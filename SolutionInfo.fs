@@ -4,10 +4,10 @@ open System.Reflection
 
 [<assembly: AssemblyVersionAttribute("1.8.0")>]
 [<assembly: AssemblyFileVersionAttribute("1.8.0")>]
-[<assembly: AssemblyMetadataAttribute("githash","276d18")>]
+[<assembly: AssemblyMetadataAttribute("githash","06d7a0")>]
 do ()
 
 module internal AssemblyVersionInformation =
     let [<Literal>] AssemblyVersion = "1.8.0"
     let [<Literal>] AssemblyFileVersion = "1.8.0"
-    let [<Literal>] AssemblyMetadata_githash = "276d18"
+    let [<Literal>] AssemblyMetadata_githash = "06d7a0"

@@ -7,3 +7,6 @@ build/
 .fake/
 paket.exe
 .idea/
+super-secret-nuget-api-key.txt
+paket-files/
+Paket.Restore.targets

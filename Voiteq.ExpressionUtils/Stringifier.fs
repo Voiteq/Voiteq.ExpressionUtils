@@ -34,7 +34,7 @@ let isCommutative(e : BinaryExpression) =
     | ExpressionType.ArrayIndex -> false
     | _ -> raiseUnrecognisedExpressionException e
     
-let coalesce a b = if a = null then "" else a + b
+let coalesce a b = if isNull a then "" else a + b
 
 let inferCacheKey (predicate: System.Linq.Expressions.Expression<System.Func<'a, bool>>) : string =
 

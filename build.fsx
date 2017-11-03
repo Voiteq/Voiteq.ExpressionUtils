@@ -58,6 +58,8 @@ Target "CreatePackage" (fun _ ->
     let PackageDependency packageName =
         packageName, GetPackageVersion packagesDir packageName 
     
+    let nugetApiKey = System.IO.File.ReadAllText "super-secret-nuget-api-key.txt"
+    
     NuGet (fun p -> 
         {p with
             Authors = [ "Stephen Willcock" ]
@@ -67,9 +69,8 @@ Target "CreatePackage" (fun _ ->
             Summary = "Voiteq Expression Utils"
             WorkingDir = packagingWorkDir
             Version = version
-            AccessKey = "dc4ded01-b57e-49fe-8dde-e5eaf89e02f8"
+            AccessKey = nugetApiKey
             Publish = true
-            PublishUrl = "https://www.myget.org/F/rb-public/api/v2/package"
             Files = [ @"Voiteq.ExpressionUtils.dll", Some @"lib/net46", None ]
             Dependencies = [ PackageDependency "FSharp.Core" ]
             }) 
